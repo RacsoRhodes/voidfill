@@ -28,6 +28,7 @@
 --		voidfill:seed
 --		voidfill:active_crystal
 --		voidfill:inert_crystal
+--		voidfill:revoider
 --
 --	ABMs
 --
@@ -115,6 +116,17 @@ minetest.register_node("voidfill:inert_crystal", {
 	groups = {cracky=3, stone=1, not_in_creative_inventory=1},
 	drop = 'default:obsidian_shard',
 	sounds = default.node_sound_stone_defaults(),
+})
+
+--[voidfill:revoider]-----------------------------------------------------------
+
+minetest.register_node("voidfill:revoider", {
+	description = "Revoider",
+	tiles = {"voidfill_revoider.png"},
+	inventory_image = minetest.inventorycube("voidfill_revoider.png"),
+	is_ground_content = true,
+	groups = {cracky=1,level=2},
+	sounds = default.node_sound_glass_defaults(),
 })
 
 --------------------------------------------------------------------------------
