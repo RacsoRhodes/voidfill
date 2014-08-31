@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 --
--- Minetest Mod "Voidfill" Version 1.0                                2014-08-25
+-- Minetest Mod "Voidfill" Version 1.1                                2014-08-31
 --
 -- By Racso Rhodes
 --
@@ -125,6 +125,8 @@ minetest.register_node("voidfill:revoider", {
 	description = "Revoider",
 	tiles = {"voidfill_revoider.png"},
 	inventory_image = minetest.inventorycube("voidfill_revoider.png"),
+	paramtype = "light",
+	light_source = 5,
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
 	sounds = default.node_sound_glass_defaults(),
