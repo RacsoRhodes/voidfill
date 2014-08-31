@@ -21,6 +21,7 @@
 --
 --		voidfill:seed
 --		default:diamond
+--		voidfill:revoider
 --
 --	Nodes
 --
@@ -49,12 +50,23 @@ minetest.register_craft({
 	}
 })
 
---[voidfill:diamond]---------------------------------------------------------------
+--[voidfill:diamond]------------------------------------------------------------
 
 minetest.register_craft({
 	output = 'default:diamond 4',
 	recipe = {
 		{'voidfill:seed'},
+	}
+})
+
+--[voidfill:revoider------------------------------------------------------------
+
+minetest.register_craft({
+	output = 'voidfill:revoider',
+	recipe = {
+		{'', 'default:obsidian_shard', ''},
+		{'default:obsidian_shard', 'voidfill:seed', 'default:obsidian_shard'},
+		{'', 'default:obsidian_shard', ''},
 	}
 })
 
