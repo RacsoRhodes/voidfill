@@ -33,6 +33,7 @@
 --	ABMs
 --
 --		voidfill:seed/active_crystal
+--		voidfill:revoider
 --
 --------------------------------------------------------------------------------
 
@@ -184,6 +185,47 @@ minetest.register_abm({
 			minetest.set_node(pos, {name = "voidfill:inert_crystal"})
 
 		end
+
+	end
+
+})
+
+--[voidfill:revoider]-----------------------------------------------------------
+--
+--	Replaces adjacent Inert Crystals with more Revoiders who then decay to air.
+--
+minetest.register_abm({
+	nodenames = {"voidfill:revoider"},
+	interval = 1,
+	chance = 4,
+	action = function(pos, node)
+
+		-- Declare table.
+		local sides = { }
+
+		-- Fill table with adjacent coords.
+		sides.north = {x=pos.x, y=pos.y, z=pos.z+1}
+		sides.east = {x=pos.x+1, y=pos.y, z=pos.z}
+		sides.south = {x=pos.x, y=pos.y, z=pos.z-1}
+		sides.west = {x=pos.x-1, y=pos.y, z=pos.z}
+		sides.above = {x=pos.x, y=pos.y+1, z=pos.z}
+		sides.below = {x=pos.x, y=pos.y-1, z=pos.z}
+
+		-- Step through table of adjacent coords.
+		for side, coords in pairs(sides) do
+
+			-- Check if current coords contains an Innert Crystal.
+			if minetest.get_node(coords).name == "voidfill:inert_crystal" then
+
+				-- Place a Revoider at current coords.
+				minetest.set_node(coords, {name = "voidfill:revoider"})
+
+			end
+
+		end
+
+		-- Replace revoider with air.
+		minetest.set_node(pos, {name = "air"})
 
 	end
 
