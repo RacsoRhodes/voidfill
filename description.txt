@@ -6,8 +6,10 @@ Crystals expand in darkness, below sea level.
 
 Crystals become inert when they can expand no further, coming into contact with anything other than air.
 
-Crystals become inert within 3 to 5 blocks of a light source, such as a torch or lava.
+Crystals become inert within 3 to 5 nodes of a light source, such as a torch or lava.
 
 Like any other active node, such as a furnace, if the player is too far from the Active Crystals they will become inert. Under default conf settings the Crystals go inert around 40 nodes away from the player.
 
 You can either fill a cave in segments, or use no-clipping mode to follow the expanding crystals.
+
+To reverse the process create and place a Revoider that will decay connected Inert Crystals.
